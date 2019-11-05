@@ -30,46 +30,40 @@
 <div class="section">
 
     <div class="container">
-        <a th:href="@{/cities/add}" class="button">Añade un Pais</a>
+        <a th:href="@{/cities/add}" class="btn btn-primary mb-3">Añade una Ciudad</a>
     </div>
 
-    <div th:switch="cities" class="container">
-        <div th:case="*" class="row">
-            <div class="col s12 center">
-                <h4>Lista de Paises</h4>
-                <br>
-                <table class="highlight responsive-table">
+    <div class="container">
+        <h4>Lista de Ciudades</h4>
+            <table class="table">
                     <thead>
-                    <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Ciudad</th>
-                        <th scope="col">Id Pais</th>
+                    <tr class="d-flex">
+                        <th scope="col" class="col-2">id</th>
+                        <th scope="col" class="col-3">Ciudad</th>
+                        <th scope="col" class="col-3">País</th>
+                        <th scope="col" class="col-4">Opciones</th>
 
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="city : ${cities}">
-                        <th scope="row" th:text="${city.cityId}"></th>
-                        <td th:text="${city.name}"></td>
-                        <td th:text="${city.country_id}"></td>
+                    <tr th:each="city : ${cities}" class="d-flex">
+                        <th scope="row" th:text="${city.cityId}" class="col-2"></th>
+                        <td th:text="${city.name}" class="col-3"></td>
+                        <td th:text="${city.country.name}" class="col-3"></td>
 
-                        <td>
-                            <div>
-                                <a th:href="@{/countries/edit/{id_city}
-                                    (id_city=${city.country_id})}"
-                                   class="waves-effect waves-light btn-small">Editar
+                        <td class="col-4">
+                                <a th:href="@{/cities/edit/{id_city}
+                                    (id_city=${city.cityId})}"
+                                   class="btn btn-small btn-success">Editar
                                 </a>
-                                <a th:href="@{/countries/delete/{id_city}
-                                (id_city=${city.country_id})}"
-                                   class="waves-effect waves-light btn-small red lighten-1">Eliminar
+                                <a th:href="@{/cities/delete/{id_city}
+                                (id_city=${city.cityId})}"
+                                   class="btn btn-small btn-danger">Eliminar
                                 </a>
-                            </div>
                         </td>
                     </tr>
                     </tbody>
-                </table>
-            </div>
-        </div>
+            </table>
     </div>
 </div>
 

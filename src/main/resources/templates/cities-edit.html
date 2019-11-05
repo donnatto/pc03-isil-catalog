@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Menu</title>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a th:href="@{/menu}" class="navbar-brand">Mi Web</a>
+    <h1 th:inline="text"> Hola [[${#httpServletRequest.remoteUser}]]</h1>
+
+    <form th:action="@{/logout}" class="form-inline" method="post">
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Salir
+        </button>
+
+    </form>
+
+
+
+</nav>
+
+<div class="container">
+
+    <div class="row justify-content-center mt-5">
+        <div class="card col-md-4">
+            <div class="card-header text-center">Editar Ciudad</div>
+            <div class="card-body">
+                <form th:object="${city}" th:action="@{/cities/edit/{id_city} (id_city=${city.cityId})}"
+                      class="col-12" method="post">
+
+                    <div class="form-group">
+                        <label for="cityId">Id de Ciudad</label>
+                        <input type="text" id="cityId" class="form-control"
+                               placeholder="cityId" th:field="*{cityId}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Nombre de Ciudad</label>
+                        <input type="text" id="name" class="form-control"
+                               placeholder="name" th:field="*{name}" autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">País</label>
+                        <select th:field="*{country.countryId}" class="form-control" id="country">
+                            <option th:each="coun: ${countries}" th:value="${coun.countryId}"
+                                    th:text="${coun.name}"></option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" type="submit">Confirmar</button>
+                    <a th:href="@{/cities}" class="text-danger">Atras</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

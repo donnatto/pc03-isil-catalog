@@ -18,8 +18,17 @@ public class CityService {
 
     public void create(City city) {
         String name = city.getName();
-        Integer countryId = city.getCountry_id();
-        City city1 = new City(name, countryId);
+        Integer countryId = city.getCountry().getCountryId();
+        String countryName = city.getCountry().getName();
+        City city1 = new City(name, new Country(countryId, countryName));
         cityRepository.create(city1);
+    }
+
+    public void update(City city) {
+        cityRepository.update(city);
+    }
+
+    public void delete(Integer id) {
+        cityRepository.delete(id);
     }
 }

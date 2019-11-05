@@ -65,8 +65,14 @@ public class CountryController {
     }
 
     @GetMapping("/delete/{id_country}")
-    public String deleteCountry(@PathVariable Integer id_country) {
-        countryService.delete(id_country);
-        return "redirect:/countries";
+    public String deleteCountry(@PathVariable Integer id_country, Model model) {
+        try {
+            countryService.delete(id_country);
+            return "redirect:/countries";
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error", e);
+            return "error";
+        }
     }
 }

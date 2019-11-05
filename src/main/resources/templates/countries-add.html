@@ -28,31 +28,26 @@
 </nav>
 
 <div class="container">
-    <h3 class="center">Nuevo Pais</h3>
-    <br>
-    <div class="row">
-        <div class="section col s12 l6 offset-l3">
-            <form action="#" method="post"
-                  th:object="${country}"
-                  th:action="@{/countries/add}"
-            >
 
-                <div class="input-field">
-                    <label for="country_name">Nombre de Pais</label>
-                    <input type="text" class="class-controller"
-                           id="country_name"
-                           th:field="*{name}" autofocus
-                    >
-                </div>
+    <div class="row justify-content-center mt-5">
+        <div class="card col-md-4">
+            <div class="card-header text-center">Nuevo País</div>
+            <div class="card-body">
+                <form th:object="${country}" th:action="@{/countries/add}" class="col-12" method="post">
 
-                <button type="submit" class="btn">
-                    Confirmar
-                </button>
-                <a th:href="@{/countries}" class="btn red lighten-1">Atras</a>
+                    <div class="form-group">
+                        <label for="name">Nombre del País</label>
+                        <input type="text" id="name" class="form-control"
+                               placeholder="name" th:field="*{name}" autofocus>
+                    </div>
 
-            </form>
+                    <button class="btn btn-primary btn-block" type="submit">Confirmar</button>
+                    <a th:href="@{/countries}" class="text-danger">Atras</a>
+                </form>
+            </div>
         </div>
     </div>
+
 </div>
 
 </body>

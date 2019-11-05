@@ -1,4 +1,4 @@
-package me.donnatto.isilcatalog.config;
+package me.donnatto.isilcatalog.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,7 +17,7 @@ public class WebSecurityConfig
         http
                 .csrf().disable().headers().frameOptions().disable().and()
                 .authorizeRequests()
-                .antMatchers("/", "/index", "/h2-console/**").permitAll()
+                .antMatchers("/", "/index", "/h2-console/**", "/img/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

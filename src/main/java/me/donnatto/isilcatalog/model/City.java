@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class City {
     private int cityId;
     private String name;
-    private int country_id;
+    private Country country;
 
-    public City(String name, int country_id) {
+    public City(String name, Country country) {
         this.name = name;
-        this.country_id = country_id;
+        this.country = country;
     }
 }

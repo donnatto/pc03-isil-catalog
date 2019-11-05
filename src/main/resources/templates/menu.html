@@ -28,32 +28,26 @@
     </nav>
 
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             <div class="col s12 m6">
                 <div class="card">
-                    <div class="card-image">
-<!--                        <img src="/img/cursos.jpg">-->
-                        <a th:href="@{/countries}" class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i
-                                class="material-icons">arrow_forward</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title">Paises</span>
-                        <p>Ingresa para ver los cursos que brindamos, y súmate a añadir cursos nuevos si lo deseas.</p>
+                    <a th:href="@{/countries}">
+                        <img class="card-img-top" src="/img/countries.jpg" alt=""/>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Paises</h5>
+                        <p class="card-text">Mira los paises y agrega nuevos.</p>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6">
                 <div class="card">
-                    <div class="card-image">
-<!--                        <img src="/img/docentes.jpg">-->
-                        <a th:href="@{/cities}"
-                           class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i
-                                class="material-icons">arrow_forward</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title">Ciudades</span>
-                        <p>Aquí puedes ver la lista de nuestros instructores actuales. También puedes anotarte como
-                            uno.</p>
+                    <a th:href="@{/cities}">
+                        <img class="card-img-top" src="/img/cities.jpg" alt=""/>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Ciudades</h5>
+                        <p class="card-text">Mira las ciudades y agrega nuevas</p>
                     </div>
                 </div>
             </div>
