@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Menu</title>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a th:href="@{/menu}" class="navbar-brand">Mi Web</a>
+    <h1 th:inline="text"> Hola [[${#httpServletRequest.remoteUser}]]</h1>
+
+    <form th:action="@{/logout}" class="form-inline" method="post">
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Salir
+        </button>
+
+    </form>
+
+
+
+</nav>
+
+<div class="container">
+    <h3 class="center">Nuevo Pais</h3>
+    <br>
+    <div class="row">
+        <div class="section col s12 l6 offset-l3">
+            <form action="#" method="post"
+                  th:object="${country}"
+                  th:action="@{/countries/add}"
+            >
+
+                <div class="input-field">
+                    <label for="country_name">Nombre de Pais</label>
+                    <input type="text" class="class-controller"
+                           id="country_name"
+                           th:field="*{name}" autofocus
+                    >
+                </div>
+
+                <button type="submit" class="btn">
+                    Confirmar
+                </button>
+                <a th:href="@{/countries}" class="btn red lighten-1">Atras</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

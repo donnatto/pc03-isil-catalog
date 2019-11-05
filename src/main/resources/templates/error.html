@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Menu</title>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a th:href="@{/menu}" class="navbar-brand">Mi Web</a>
+    <h1 th:inline="text"> Hola [[${#httpServletRequest.remoteUser}]]</h1>
+
+    <form th:action="@{/logout}" class="form-inline" method="post">
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Salir
+        </button>
+
+    </form>
+
+
+
+</nav>
+
+<div class="container">
+    <h1 class="header center white-text">Error</h1>
+    <div class="row center">
+        <h5 th:text="${error.message}" class="header col s12 light">Mensaje de error</h5>
+    </div>
+</div>
+
+</body>
+</html>
